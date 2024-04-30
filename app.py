@@ -3,10 +3,15 @@ import pickle
 import nltk
 import os
 import json
+import re
+import nltk
+import string
+
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
+
 
 # Download required NLTK data
 nltk.download('punkt')
@@ -25,13 +30,30 @@ with open('tfidf_transformer.pickle', 'rb') as f:
     tfidf_transformer = pickle.load(f)
 
 
+# def preprocess_complaint(complaint):
+#     if isinstance(complaint, str):
+#         complaint = complaint.lower()  # to lowercase
+#         complaint = re.sub('\[.*\]', '', complaint).strip()  # Remove text in square brackets
+#         complaint = complaint.translate(str.maketrans('', '', string.punctuation))  # Remove punctuation
+#         complaint = re.sub('\S*clean_text\d\S*\s*', '', complaint).strip()  # Remove words containing numbers
+#         stop_words = set(stopwords.words('english'))
+#         tokens = word_tokenize(complaint)
+#         filtered_tokens = [word for word in tokens if word not in stop_words]
+#         return ' '.join(filtered_tokens)
+#     else:
+#         return ''
+# stop_words = set(stopwords.words('english'))
 def preprocess_complaint(complaint):
     # Convert the complaint to lowercase and tokenize it
     complaint = complaint.lower()
-    tokens = word_tokenize(complaint)
+    complaint = re.sub('\[.*\]', '', complaint).strip()
+    complaint = complaint.translate(str.maketrans('', '', string.punctuation))
+    complaint = re.sub('\S*clean_text\d\S*\s*', '', complaint).strip()
 
-    # Remove stop words
+    tokens = word_tokenize(complaint)
     stop_words = set(stopwords.words('english'))
+
+    
     filtered_tokens = [word for word in tokens if word not in stop_words]
 
     return ' '.join(filtered_tokens)

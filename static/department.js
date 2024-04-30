@@ -21,7 +21,7 @@ function fetchComplaints() {
       seenComplaintIds.add(complaint.id); // Add ID to seen set
 
       const complaintDiv = document.createElement("div");
-      complaintDiv.textContent = `${complaint.text} (Department: ${complaint.department})`;
+      complaintDiv.textContent = `${complaint.text} `;
 
       switch (complaint.department) {
         case "loan":

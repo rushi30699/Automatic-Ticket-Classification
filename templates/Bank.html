@@ -4,15 +4,77 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bank Account Department Complaints</title>
-    <link rel="stylesheet" href="/static/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <style>
+      /* Add your CSS styles here */
+      body {
+        background-image: url("../static/gradient.jpg");
+        background-size: cover;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        border: #45a049;
+        background-color: peru;
+        width: 50%;
+        margin-left: 350px;
+        padding: 15px;
+        border-radius: 10px;
+      }
+      /* Navbar Styles */
+      .navbar {
+        background-color: #333;
+        overflow: hidden;
+        color: white;
+        padding: 0px;
+      }
+
+      .navbar a {
+        float: left;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      /* Content Styles */
+      #bank-container {
+        padding: 20px;
+      }
+
+      #bank-container div {
+        background-color: #f2f2f2;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+    </style>
   </head>
   <body>
-    <h1>Bank Account Department Complaints</h1>
-    <div id="bank-container">
-      <!-- {% for complaint in complaints if complaint.department == 'bank' %}
-      <div>{{ complaint }} (Department: {{ complaint.department }})</div>
-      {% endfor %} -->
+    <div class="navbar">
+      <a href="#"><i class="fas fa-home"></i> Home</a>
     </div>
+
+    <h1 style="text-align: center; color: white">
+      Bank Account Department Complaints
+    </h1>
+    <div id="bank-container">
+      <!-- {% for complaint in complaints if complaint.department == 'bank' %} -->
+
+      <!-- {% endfor %} -->
+    </div>
+
     <script src="/static/department.js"></script>
   </body>
 </html>
